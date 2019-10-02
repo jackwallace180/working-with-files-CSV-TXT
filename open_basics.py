@@ -17,6 +17,25 @@ def open_read_file(file):
         print(errmsg) #prints error message from FileNotFoundError
         raise    #prints actual error
 
+def open_read_file_using_with(file):
+
+    try:
+        with open(file, 'r') as open_read_file:
+            for line in open_read_file.readlines():
+                print(line.rstrip('\n'))
+    except FileNotFoundError as errmsg:
+        print('file cannot be found :(')
+    finally:
+            print('\n Execution completed')
+
+def write_to_file(file, order_item):
+    try:
+        with open(file, 'a') as opened_file:
+            opened_file.write('\n' + order_item)
+
+    except FileNotFoundError:
+        print('File not found oh dear')
+
 
 
 
